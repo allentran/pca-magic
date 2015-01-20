@@ -7,8 +7,5 @@ A better way: suppose you had the latent factors representing the matrix. Constr
 
 However, the problem is you never have these factors to begin with.  If you had them, you wouldn't be reading this.  
 
-Two solutions:
 - form the calculation of the latent factors as a fixed point problem with a (good) initial guess of the factors.  
-- iteratively construct the factors. Starting with an initial subset of the data that is complete, extend the data with minimal interpolation based on the current set of factors
-
-This repository contains an unfinished implementation in Python which requires NumPy and Sci-kit Learn.
+- iteratively construct the factors. 
