@@ -20,7 +20,7 @@ if __name__ == '__main__':
     ],
     install_requires = [
       'numpy',
-      'pandas',
+      'scipy',
     ],
 
 

@@ -2,7 +2,6 @@ import os
 
 import numpy as np
 from scipy.linalg import orth
-import pandas as pd
 
 class PPCA():
 
@@ -85,9 +84,6 @@ class PPCA():
         C = np.dot(C, vecs)
         X = np.dot(data, C)
         
-        # add back scaling
-#data = (data + np.tile(M, (N, 1))) * np.tile(stds, (N, 1))
-
         # attach objects to class
         self.C = C
         self.ss = ss
@@ -111,17 +107,17 @@ class PPCA():
         total_var = var.sum()
         self.var_exp = self.eig_vals.cumsum() / total_var
 
-    def fit_variance(self, var=0.9, verbose=False):
-
-        d = round(0.9*var*self.raw.shape[1])
-        while True:
-            try:
-                self.fit(d=d,verbose=verbose)
-            except numpy.linalg.linalg.LinAlgError:
-                d *= 0.9
-            else:
-                break
-        self._calc_var()
-        sufficient = np.where(self.var_exp>=var)
-        if sufficient[0].size > 0:
-            return sufficient[0][0]
+#    def fit_variance(self, var=0.9, verbose=False):
+#
+#        d = round(0.9*var*self.raw.shape[1])
+#        while True:
+#            try:
+#                self.fit(d=d,verbose=verbose)
+#            except numpy.linalg.linalg.LinAlgError:
+#                d *= 0.9
+#            else:
+#                break
+#        self._calc_var()
+#        sufficient = np.where(self.var_exp>=var)
+#        if sufficient[0].size > 0:
+#            return sufficient[0][0]
