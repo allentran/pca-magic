@@ -29,3 +29,16 @@ The model parameters and components will be attached to the ppca object.
 variance_explained = ppca.var_exp
 components = ppca.X
 model_params = ppca.C
+```
+If you want the principal components, call `transform`.
+```
+component_mat = ppca.transform()
+```
+Post fitting the model, save the model if you want.
+```
+ppca.save('mypcamodel')
+```
+Load a model, post instantiating a PPCA object.  This will make fitting/transforming much faster.
+```
+ppca.load('mypcamodel.npy')
+```

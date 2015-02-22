@@ -10,6 +10,7 @@ class PPCA():
         self.raw = data
         self.raw[np.isinf(self.raw)] = np.max(self.raw[np.isfinite(self.raw)])
         self.data = None
+        self.C = None
 
     def fit(self, d=None, tol=1e-4, min_obs=10, verbose=False):
 
@@ -30,8 +31,11 @@ class PPCA():
 
         if d is None:
             d = round(0.2*D)
-
-        C = np.random.randn(D, d)
+        
+        if self.C is None:
+            C = np.random.randn(D, d)
+        else:
+            C = self.C
         CC = np.dot(C.T, C)
         X = np.dot(np.dot(data, C), np.linalg.inv(CC))
         recon = np.dot(X, C.T)
@@ -94,6 +98,12 @@ class PPCA():
         self.eig_vals = vals
         self._calc_var()
 
+    def transform():
+
+        assert self.C is not None
+        self.X = np.dot(self.data, self.C)
+        return self.X
+
     def _calc_var(self):
 
         if self.data is None:
@@ -107,17 +117,12 @@ class PPCA():
         total_var = var.sum()
         self.var_exp = self.eig_vals.cumsum() / total_var
 
-#    def fit_variance(self, var=0.9, verbose=False):
-#
-#        d = round(0.9*var*self.raw.shape[1])
-#        while True:
-#            try:
-#                self.fit(d=d,verbose=verbose)
-#            except numpy.linalg.linalg.LinAlgError:
-#                d *= 0.9
-#            else:
-#                break
-#        self._calc_var()
-#        sufficient = np.where(self.var_exp>=var)
-#        if sufficient[0].size > 0:
-#            return sufficient[0][0]
+    def save(self, fpath):
+
+        np.save(fpath)
+        
+    def load(self, fpath):
+
+        assert os.path.isfile(fpath)
+
+        self.C = np.load(fpath)
