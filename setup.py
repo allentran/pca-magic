@@ -4,7 +4,7 @@ if __name__ == '__main__':
   name = 'ppca'
   setup(
     name         = name,
-    version      = "0.0.2",
+    version      = "0.0.3",
     author       = 'Allen Tran',
     author_email = 'realallentran@gmail.com',
     description  = 'Probabilistic PCA',
