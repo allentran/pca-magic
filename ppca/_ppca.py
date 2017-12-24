@@ -13,6 +13,7 @@ class PPCA():
         self.C = None
         self.means = None
         self.stds = None
+        self.eig_vals = None
 
     def _standardize(self, X):
 
@@ -106,10 +107,6 @@ class PPCA():
         self.data = data
         self.eig_vals = vals
         self._calc_var()
-
-        import IPython
-        IPython.embed()
-        assert False
 
     def transform(self, data=None):
 

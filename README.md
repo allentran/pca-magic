@@ -27,7 +27,7 @@ ppca.fit(d=100, verbose=True)
 The model parameters and components will be attached to the ppca object.
 ```
 variance_explained = ppca.var_exp
-components = ppca.X
+components = ppca.data
 model_params = ppca.C
 ```
 If you want the principal components, call `transform`.
