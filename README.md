@@ -1,3 +1,4 @@
+[![Build Status](http://circleci-badges-max.herokuapp.com/img/allentran/pca-magic?token=c5e3abc5475395cd2201afbed4f1a7de1761fa13)](https://circleci.com/gh/allentran/pca-magic?token=c5e3abc5475395cd2201afbed4f1a7de1761fa13)
 # pca-magic
 An implementaton of probabilisitc principal components analysis which is a variant of vanilla PCA that can be used to
 - compute factors where some of the data are missing
