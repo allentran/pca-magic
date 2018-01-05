@@ -14,7 +14,7 @@ A better way: suppose you had the latent factors representing the matrix. Constr
 
 However, the problem is you never have these factors to begin with.  The old chicken and egg problem.  But no matter, fixed point algorithms via Probabilistic PCA to the rescue.
 
-But over 50 percent of the variance in those 14k+ time series in the CPS can be explained by the 12 factors seen below.
+With this strategy, over 50 percent of the variance in those 14k+ time series in the CPS can be explained by just 12 factors.
 
 ![CPS components](http://allentran.github.io/static/components.png)
 
