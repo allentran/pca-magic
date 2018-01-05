@@ -4,13 +4,21 @@ An implementaton of probabilisitc principal components analysis which is a varia
 - compute factors where some of the data are missing
 - interpolate data by using information from additional series
 
-Often, you want to use PCA but your lovely matrix is smattered with NaNs everywhere.
+Often, you want to use PCA but your data is smattered with missing data. See below, where the white represents missing data in 14k+ time series in the Current Population Survey, a monthly survey of about 60k households conducted by the United States Census Bureau since 1940.
 
-If you don't have too many NaNs, you could try filling in the NaNs with means or some other interpolated value but if you have too many NaNs, your rudimentary interpolation is going to overwhelm the signal in the data with noise.  (Think about the limiting case with all but one NaN).
+![CPS missing data](http://allentran.github.io/static/missing.png)
+
+If enough of the data is not missing, you can fill in the missing data with sample means or some other interpolated value but if you have too much missing data, your rudimentary interpolation is going to overwhelm the signal in the data with noise.  (Think about the limiting case with all but one missing data point).
 
 A better way: suppose you had the latent factors representing the matrix. Construct a linear model for each series and then use the resulting model for interpolation.  Intuitively, this will preserve the signal from the data as the interpolated values come from latent factors. 
 
 However, the problem is you never have these factors to begin with.  The old chicken and egg problem.  But no matter, fixed point algorithms via Probabilistic PCA to the rescue.
+
+But over 50 percent of the variance in those 14k+ time series in the CPS can be explained by the 12 factors seen below.
+
+![CPS components](http://allentran.github.io/static/components.png)
+
+## Installation
 
 Install via pip:
 ```
