@@ -86,7 +86,7 @@ class PPCA():
                 + np.trace(XX) - missing*np.log(ss0)
             diff = abs(v1/v0 - 1)
             if verbose:
-                print diff
+                print(diff)
             if (diff < tol) and (counter > 5):
                 break
 

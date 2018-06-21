@@ -15,8 +15,8 @@ class NaNTest(unittest.TestCase):
         n_components = 3
 
         data = np.random.random((N, k))
-        for n in xrange(N):
-            for _k in xrange(k):
+        for n in range(N):
+            for _k in range(k):
                 if random.random() < p_nan:
                     data[n, _k] = np.nan
 
