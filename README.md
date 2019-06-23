@@ -27,11 +27,11 @@ pip install ppca
 Load in the data which should be arranged as `n_samples` by `features`.  As usual, you should make sure your data is stationary (take first differences if possible) and standardized.
 ```
 from ppca import PPCA
-ppca = PPCA(data)
+ppca = PPCA()
 ```
 Fit the model with parameter `d` specifying the number of components and verbose printing convergence output if required.
 ```
-ppca.fit(d=100, verbose=True)
+ppca.fit(data=data, d=100, verbose=True)
 ```
 The model parameters and components will be attached to the ppca object.
 ```
