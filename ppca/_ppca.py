@@ -108,6 +108,9 @@ class PPCA():
         self.eig_vals = vals
         self._calc_var()
 
+        # to allow using this as a part of sklearn's pipeline
+        return self
+
     def transform(self, data=None):
 
         if self.C is None:
